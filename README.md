@@ -4,10 +4,20 @@ A python script to manage skeleton files.
 Setup:  
  * After downloading the repository, populate the `./skeletons` directory with skeleton files.
  * Add the repository to the system path.
+```
+usage: skeleton.py [-h] [-n [NAME]] skeltype [skelname]
 
-Usage:  
- * Run `skeleton.py` in another folder with arguments.
-   * Ex: `skeleton html`
-   * Ex: `skeleton json manifest`
-   * Ex: `skeleton gitignore`
- * The first argument is the file type and the second argument is the file name. If no file name is specified, it will default to nothing.
+positional arguments:
+  skeltype              The file type of the skeleton
+  skelname              The name of the skeleton file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -n [NAME], --name [NAME]
+                        The file name of the destination file
+```
+ Example commands:
+   * `skeleton html`
+   * `skeleton json manifest`
+   * `skeleton gitignore`
+   * `skeleton html --name index`
