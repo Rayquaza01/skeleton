@@ -7,10 +7,11 @@ import argparse
 
 def options():
     ap = argparse.ArgumentParser()
-    ap.add_argument("skeltype", help="The file type of the skeleton")
+    ap.add_argument("skeltype", help="The file type of the skeleton", nargs=1)
     ap.add_argument("skelname", help="The name of the skeleton file", nargs="?")
     ap.add_argument("-n", "--name", help="The file name of the destination "
                     "file", nargs="?")
+    return ap.parse_args()
 
 
 def main():
@@ -34,5 +35,5 @@ def main():
         os.rename(destPath, destName)
 
 
-if __name__ == "main":
+if __name__ == "__main__":
     main()
