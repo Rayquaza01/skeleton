@@ -7,7 +7,7 @@ import argparse
 
 def options():
     ap = argparse.ArgumentParser()
-    ap.add_argument("skeltype", help="The file type of the skeleton", nargs=1)
+    ap.add_argument("skeltype", help="The file type of the skeleton")
     ap.add_argument("skelname", help="The name of the skeleton file", nargs="?")
     ap.add_argument("-n", "--name", help="The file name of the destination "
                     "file", nargs="?")
@@ -16,7 +16,7 @@ def options():
 
 def main():
     opts = options()
-    skelDir = os.path.join(os.path.dirname(sys.argv[0]) + "skeletons")
+    skelDir = os.path.join(os.path.dirname(sys.argv[0]), "skeletons")
     curDir = os.getcwd()
     skelType = opts.skeltype
     if opts.skelname is not None:
@@ -24,7 +24,7 @@ def main():
     else:
         skelName = ""
     skelFile = ".".join([skelName, skelType])
-    skelPath = os.path.join([skelDir, skelFile])
+    skelPath = os.path.join(skelDir, skelFile)
     if os.path.isfile(skelPath):
         shutil.copy(skelPath, curDir)
     else:
